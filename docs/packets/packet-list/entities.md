@@ -40,6 +40,16 @@ Applies an instantaneous force impulse to an entity.
 | `entityId` | `Int` | Target entity. |
 | `force` | `Vector3f` | Direction and magnitude of the punch. |
 
+## ChangeVelocity (164)
+**Bound:** Clientbound | **State:** Play
+
+Sets the velocity of an entity (e.g., explosions, jump pads).
+
+| Field | Type | Notes |
+| :--- | :--- | :--- |
+| `entityId` | `Int` | The target entity. |
+| `velocity` | `Vector3f` | Motion vector (X, Y, Z). |
+
 ## SpawnModelParticles (165)
 **Bound:** Clientbound
 

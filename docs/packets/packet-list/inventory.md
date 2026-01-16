@@ -94,6 +94,15 @@ Instructs the client to open a container interface (Chest, Crafting Table).
 | `type` | `String` | Window layout type (e.g., "container_generic_9x3"). |
 | `title` | `String` | Window title. |
 
+## CloseWindow (209)
+**Bound:** Bidirectional | **State:** Play
+
+Sent when a user presses Escape to close a GUI, or by the server to force-close a window.
+
+| Field | Type | Notes |
+| :--- | :--- | :--- |
+| `windowId` | `Int` | The ID of the window to close. |
+
 ## CustomHud (220)
 **Bound:** Clientbound
 

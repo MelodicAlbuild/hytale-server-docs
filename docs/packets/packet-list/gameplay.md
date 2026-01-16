@@ -47,6 +47,16 @@ Sent by the client when it has finished processing assets and is ready to spawn.
 | `readyForChunks` | `Boolean` | True if client can accept chunk data. |
 | `readyForGameplay` | `Boolean` | True if client is ready to control player. |
 
+## ClientTeleport (106)
+**Bound:** Serverbound | **State:** Play
+
+Sent by the server to force the client's position (e.g., teleporting via command or portal).
+
+| Field | Type | Notes |
+| :--- | :--- | :--- |
+| `position` | `Vector3d` | The target coordinates. |
+| `rotation` | `Quaternion` | The target rotation. |
+
 ## ClientMovement (107)
 **Bound:** Serverbound
 
@@ -62,6 +72,19 @@ Updates the player's position and rotation.
 | `pitch` | `Float` | **Optional** (Mask `0x10`). |
 | `onGround` | `Boolean` | **Optional** (Mask `0x20`). |
 
+## ClientPlaceBlock (108)
+**Bound:** Serverbound | **State:** Play
+
+Sent by the client when the player right-clicks to place a block.
+
+| Field | Type | Notes |
+| :--- | :--- | :--- |
+| `x` | `Int` | Block X. |
+| `y` | `Int` | Block Y. |
+| `z` | `Int` | Block Z. |
+| `face` | `Byte` | Face clicked (0-5). |
+| `hand` | `Int` | Hand index used. |
+
 ## SetChunk (131)
 **Bound:** Clientbound | **Compressed:** Yes
 
@@ -73,6 +96,16 @@ Sends a vertical column of world data (16x16xH).
 | `chunkZ` | `Int` | Chunk coordinate Z. |
 | `activeSections` | `Int` | Bitmask of which vertical sections are included. |
 | `data` | `Byte[]` | Zstd compressed buffer of blocks and biomes. |
+
+## UnloadChunk (132)
+**Bound:** Clientbound | **State:** Play
+
+Instructs the client to unload a specific chunk from memory.
+
+| Field | Type | Notes |
+| :--- | :--- | :--- |
+| `chunkX` | `Int` | Chunk coordinate X. |
+| `chunkZ` | `Int` | Chunk coordinate Z. |
 
 ## ServerSetBlock (140)
 **Bound:** Clientbound
@@ -97,6 +130,17 @@ Synchronizes the world clock.
 | :--- | :--- | :--- |
 | `nullBits` | `Byte` | Bitmask. |
 | `gameTime` | `InstantData` | **Optional**. Current ticks. If null, 12 bytes of zeros are written. |
+
+## UpdateWeather (147)
+**Bound:** Clientbound | **State:** Play
+
+Updates the current weather state (rain, snow, clear).
+
+| Field | Type | Notes |
+| :--- | :--- | :--- |
+| `nullBits` | `Byte` | Bitmask. |
+| `weatherId` | `Int` | The registry ID of the weather (from `UpdateWeathers`). |
+| `transitionTime` | `Float` | Seconds to fade to this weather. |
 
 ## DisplayDebug (232)
 **Bound:** Clientbound
