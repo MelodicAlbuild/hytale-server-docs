@@ -25,9 +25,9 @@ There will be notes at the beginning of articles if there is any major discrepen
 * **[Connection & Auth](/connection/auth-flow)**: Details the OAuth2 Device Code Flow, Session Service API, and the handshake sequence required to connect a client to the server.
 * **[Protocol System](/protocol/wire-format)**: Explains the Netty-based networking architecture, packet headers, Zstd compression, and data types.
 * **[Packet Reference](/packets)**: The complete, byte-level specification for every packet in the game (IDs 0–500+).
-    * **[Gameplay](/packets/gameplay)**: Movement, Block Updates, Game Mode.
-    * **[World Data](/packets/assets)**: Registry Sync, Weather, Time.
-    * **[Tools & Editor](/packets/tools)**: Builder Tools, Asset Editor, Machinima.
+    * **[Gameplay](/packets/packet-list/gameplay)**: Movement, Block Updates, Game Mode.
+    * **[World Data](/packets/packet-list/assets)**: Registry Sync, Weather, Time.
+    * **[Tools & Editor](/packets/packet-list/tools)**: Builder Tools, Asset Editor, Machinima.
 * **[Codec System](/codec/architecture)**: Covers the BSON-based serialization framework, including schemas, validation, and complex data structures.
 * **[Plugin System](/plugin-system/lifecycle)**: Documentation on the plugin lifecycle, event system, manifest configuration, and component registration.
 
